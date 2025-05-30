@@ -1,0 +1,25 @@
+{% block main %}
+{% load static %}
+
+{# Login Form #}
+<h1>Login</h1>
+<form action="{% url 'login-process' %}" method="POST">
+    {% csrf_token %}
+        <div>
+            <label for="username"></label>
+            <input type="text" required name="username" id="username"  placeholder="USUARIO">
+        </div>
+        <div>
+            <label for="password"></label>
+            <input type="password" required name="password" id="password" placeholder="CONTRASEÑA">
+            </div>
+
+        {% if error %}
+        <p>{{ error }}</p>
+        {% endif %}
+
+        <div>
+            <button type="submit" class="btn btn-custom rounded-0"><strong>INICIA SESIÓN</strong></button>
+        </div>
+</form>
+{% endblock main %}
