@@ -2,4 +2,13 @@
 {% block main %}
 {% load static %}
     <h1>Dashboard</h1>
+    {% for tesis in ultima_tesis_carrera %}
+        <div>
+            <h2>{{ tesis.id_tesis }}</h2>
+            <h2>{{ tesis.titulo }}</h2>
+            <p><strong>Autores:</strong> {{ tesis.autores }}</p>
+            <p><strong>Carrera:</strong> {{tesis.carrera}}</p>
+            <p><strong>Fecha de Publicación:</strong> {{ tesis.fecha_publicacion }}</p>
+        </div>
+    {% endfor %}
 {% endblock main %}
