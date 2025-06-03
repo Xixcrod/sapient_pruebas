@@ -13,7 +13,6 @@ def obtener_ultimas_tesis_por_carrera():
             # Obtener los autores de la tesis
             autores = TesisAutores.objects.filter(tesis=ultima_tesis).select_related('autor')
             autores_nombres = [f"{autor.autor.nombres} {autor.autor.apellidos}" for autor in autores]
-            print(ultima_tesis.fecha_publicacion)
             resultados.append({
                 'id_tesis': ultima_tesis.id,
                 'titulo': ultima_tesis.titulo,
