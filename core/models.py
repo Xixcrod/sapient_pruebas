@@ -38,6 +38,7 @@ class Tesis(models.Model):
         Carreras,
         on_delete=models.CASCADE,
     )
+    documento = models.FileField(upload_to='thesis/')
     estado = models.BooleanField(default=True)
 
 

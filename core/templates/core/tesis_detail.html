@@ -1,0 +1,16 @@
+<h1>Tesis Detail</h1>
+
+<p>{{ tesis.titulo }}</p>
+<p>{{ tesis.autor }}</p>
+<p>{{ tesis.fecha }}</p>
+<p>{{tesis.numero_paginas}}</p>
+<p>{{tesis.carrera.nombre}}</p>
+<p><strong>Resumen:</strong> {{ tesis.resumen }}</p>
+<ul>
+    {% for palabra in palabras_clave %}
+        <li>{{ palabra.palabra }}</li>
+    {% empty %}
+        <li>No hay palabras clave asociadas.</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'descargar_tesis' tesis.id %}" class="tesis-download" download>Descargar</a>

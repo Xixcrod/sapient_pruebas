@@ -1,13 +1,17 @@
 {% extends 'core/layouts/navbar.html' %}
 {% block main %}
 {% load static %}
+{% csrf_token %}
     <h1>Dashboard</h1>
     {% for tesis in ultima_tesis_carrera %}
         <div>
-            <h2>{{ tesis.titulo }}</h2>
+            {% if tesis.id_tesis %}
+            <a href="{% url 'tesis_detail' tesis.id_tesis %}">{{ tesis.titulo }}
             <p><strong>Carrera:</strong> {{tesis.carrera}}</p>
             <p><strong>Autores:</strong> {{ tesis.autores }}</p>
             <p><strong>Fecha de Publicación:</strong> {{ tesis.fecha_publicacion }}</p>
+            </a>
+            {% endif %}
         </div>
     {% endfor %}
 {% endblock main %}
